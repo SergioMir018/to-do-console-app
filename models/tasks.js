@@ -24,6 +24,13 @@ class Tasks {
         this._list = {};
     }
 
+    deleteTasks(id) {
+        
+        if (this._list[id]) {
+            delete this._list[id];
+        }
+    }
+
     createTask(desc = '') {
         const task = new Task(desc);
 
@@ -52,9 +59,13 @@ class Tasks {
 
             if (isCompleted === completed) {
                 index ++;
-                console.log(`${index.toString().green} ${desc} :: ${state}`);
+                console.log(`${index.toString().green}. ${desc} :: ${state}`);
             }
         });
+    }
+
+    completeTasks() {
+
     }
 }
 
