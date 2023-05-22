@@ -41,6 +41,21 @@ class Tasks {
             console.log(`${index} ${desc} :: ${state}`);
         });
     }
+
+    pendingCompletedTasksList(isCompleted) {
+
+        let index = 0;
+
+        this.listArray.forEach((task) => {
+            const {desc, completed} = task;
+            const state = (completed) ? 'Completed'.green : 'Pending'.red;
+
+            if (isCompleted === completed) {
+                index ++;
+                console.log(`${index.toString().green} ${desc} :: ${state}`);
+            }
+        });
+    }
 }
 
 

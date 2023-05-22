@@ -29,8 +29,10 @@ const main = async() => {
                 tasks.completeTasksList();
                 break;
             case '3':
+                tasks.pendingCompletedTasksList(true);
                 break;
             case '4':
+                tasks.pendingCompletedTasksList(false);
                 break;
             case '5':
                 break;

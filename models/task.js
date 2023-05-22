@@ -4,7 +4,7 @@ class Task {
     constructor(desc) {
         this.id = uuid4();
         this.desc = desc;
-        this. completed = null;
+        this. completed = false;
     }
 }
 
