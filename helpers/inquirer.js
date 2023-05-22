@@ -98,9 +98,14 @@ const listDeletingTask = async(tasks = []) => {
         }
     });
 
+    choices.unshift ({
+        value: '0',
+        name: '0.'.green + ' Cancel'
+    });
+
     const deleteList = [
         {
-            type: 'list',
+            type: 'checkbox',
             name: 'id',
             message: 'Delete',
             choices
@@ -122,6 +127,41 @@ const confirm = async(message) => {
     ];
 
     const {ok} = await inquirer.prompt(question);
+
+    return ok;
+}
+
+const completeTasksCheck = async(tasks = []) => {
+    const choices = tasks.map((task, i) => {
+        const index = `${i + 1}. `.green;
+        const {completed} = task;
+
+        if (completed) {
+            return {
+            value: task.id,
+            name: `${index} ${task.desc}`,
+            checked: true
+        }
+        }
+    });
+
+    choices.unshift ({
+        value: '0',
+        name: '0.'.green + ' Cancel'
+    });
+
+    const completeList = [
+        {
+            type: 'checkbox',
+            name: 'ids',
+            message: 'Select',
+            choices
+        }
+    ];
+
+    const {id} = await inquirer.prompt(completeList);
+
+    return id;
 }
 
 module.exports = {
@@ -129,5 +169,6 @@ module.exports = {
     pause,
     readInput,
     listDeletingTask,
-    confirm
+    confirm,
+    completeTasksCheck
 }
