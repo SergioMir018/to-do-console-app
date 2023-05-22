@@ -132,16 +132,17 @@ const confirm = async(message) => {
 }
 
 const completeTasksCheck = async(tasks = []) => {
-    const choices = tasks.map((task, i) => {
-        const index = `${i + 1}. `.green;
-        const {completed} = task;
+    const choices = tasks
+                        .filter(task => !task.completed)
+                        .map((task, i) => {
+                            const index = `${i + 1}. `.green;
 
-        return {
-            value: task.id,
-            name: `${index} ${task.desc}`,
-            checked: false
-        }
-    });
+                            return {
+                                value: task.id,
+                                name: `${index} ${task.desc}`,
+                                checked: false
+                            }
+                        });
 
     choices.unshift ({
         value: '0',
