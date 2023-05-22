@@ -14,7 +14,7 @@ const main = async() => {
     const loadedData = readDB();
 
     if(loadedData) {
-
+        tasks.loadTasksArray(loadedData);
     }
 
     await pause();

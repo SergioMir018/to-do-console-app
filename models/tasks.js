@@ -14,6 +14,12 @@ class Tasks {
         return taskList;
     }
 
+    loadTasksArray( tasks = []) {
+        tasks.forEach(task => {
+            this._list[task.id] = task;
+        })
+    }
+
     constructor() {
         this._list = {};
     }
