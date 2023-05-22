@@ -16,9 +16,7 @@ const main = async() => {
     if(loadedData) {
         tasks.loadTasksArray(loadedData);
     }
-
-    await pause();
-
+    
     do {
         opt = await inquirerMenu();
 
