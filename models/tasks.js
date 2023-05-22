@@ -54,18 +54,23 @@ class Tasks {
         let index = 0;
 
         this.listArray.forEach((task) => {
-            const {desc, completed} = task;
+            const {desc, completed, completionDate} = task;
             const state = (completed) ? 'Completed'.green : 'Pending'.red;
 
             if (isCompleted === completed) {
                 index ++;
-                console.log(`${index.toString().green}. ${desc} :: ${state}`);
+                console.log(`${index.toString().green}. ${desc} :: ${state} :: ${completionDate}`);
             }
         });
     }
 
-    completeTasks() {
+    completeTasks(ids = []) {
+        ids.forEach(id => {
+            const task = this._list[id];
 
+            task.completed = true;
+            task.completionDate = new Date().toISOString();
+        });
     }
 }
 

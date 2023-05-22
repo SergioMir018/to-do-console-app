@@ -158,9 +158,9 @@ const completeTasksCheck = async(tasks = []) => {
         }
     ];
 
-    const {id} = await inquirer.prompt(completeList);
+    const {ids} = await inquirer.prompt(completeList);
 
-    return id;
+    return ids;
 }
 
 module.exports = {
