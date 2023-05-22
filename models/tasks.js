@@ -29,6 +29,18 @@ class Tasks {
 
         this._list[task.id] = task;
     }
+
+    completeTasksList() {
+
+        this.listArray.forEach((task, i) => {
+
+            const index = `${i + 1}`.green;
+            const {desc, completed} = task;
+            const state = (completed) ? 'Completed'.green : 'Pending'.red;
+
+            console.log(`${index} ${desc} :: ${state}`);
+        });
+    }
 }
 
 

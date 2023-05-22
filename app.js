@@ -16,7 +16,7 @@ const main = async() => {
     if(loadedData) {
         tasks.loadTasksArray(loadedData);
     }
-    
+
     do {
         opt = await inquirerMenu();
 
@@ -26,7 +26,7 @@ const main = async() => {
                 tasks.createTask(desc)
                 break;
             case '2':
-                console.log(tasks._list);
+                tasks.completeTasksList();
                 break;
             case '3':
                 break;
