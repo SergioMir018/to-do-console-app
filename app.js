@@ -39,13 +39,13 @@ const main = async() => {
                 tasks.completeTasks(ids);
                 break;
             case '6':
-                const id = await listDeletingTask(tasks.listArray);
-                if (id !== '0') {
+                const deleteIds = await listDeletingTask(tasks.listArray);
+                if (deleteIds !== '0') {
                     const isOk = await confirm('Are you sure?');
                 
                     if(isOk) {
-                        tasks.deleteTasks(id);
-                        console.log('Task deleted');
+                        tasks.deleteTasks(deleteIds);
+                        console.log('Task(s) deleted');
                     }
                 }
                 

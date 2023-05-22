@@ -24,11 +24,12 @@ class Tasks {
         this._list = {};
     }
 
-    deleteTasks(id) {
-        
-        if (this._list[id]) {
+    deleteTasks(ids = []) {
+        ids.forEach( id => {
+            if (this._list[id]) {
             delete this._list[id];
         }
+        });
     }
 
     createTask(desc = '') {
