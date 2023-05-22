@@ -35,7 +35,7 @@ const main = async() => {
                 tasks.pendingCompletedTasksList(false);
                 break;
             case '5':
-                completeTasksCheck(tasks.listArray);
+                await completeTasksCheck(tasks.listArray);
                 break;
             case '6':
                 const id = await listDeletingTask(tasks.listArray);

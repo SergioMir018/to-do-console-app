@@ -136,12 +136,10 @@ const completeTasksCheck = async(tasks = []) => {
         const index = `${i + 1}. `.green;
         const {completed} = task;
 
-        if (completed) {
-            return {
+        return {
             value: task.id,
             name: `${index} ${task.desc}`,
-            checked: true
-        }
+            checked: false
         }
     });
 
