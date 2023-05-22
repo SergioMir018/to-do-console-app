@@ -1,4 +1,5 @@
 const Task = require("./task");
+require('colors');
 
 class Tasks {
 
@@ -60,7 +61,14 @@ class Tasks {
 
             if (isCompleted === completed) {
                 index ++;
-                console.log(`${index.toString().green}. ${desc} :: ${state} :: ${completionDate}`);
+
+                if (!isCompleted) {
+                    console.log(`${index.toString().green}. ${desc} :: ${state}`);
+                } else {
+                    console.log(`${index.toString().green}. ${desc} :: ${state} :: ${completionDate.green}`);
+                }
+
+                
             }
         });
     }

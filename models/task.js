@@ -5,7 +5,7 @@ class Task {
         this.id = uuid4();
         this.desc = desc;
         this. completed = false;
-        this.completionDate = null;
+        this.completionDate = 'pending for completion';
     }
 }
 
